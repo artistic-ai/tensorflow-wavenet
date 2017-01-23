@@ -49,13 +49,14 @@ def load_generic_audio(directory, sample_rate):
     randomized_files = randomize_files(files)
     for filename in randomized_files:
         ids = id_reg_exp.findall(filename)
-        if ids is None:
+        #todo: replace this quick fix
+        try:
+            # The file name matches the pattern for containing ids.
+            category_id = int(ids[0][0])
+        except:
             # The file name does not match the pattern containing ids, so
             # there is no id.
             category_id = None
-        else:
-            # The file name matches the pattern for containing ids.
-            category_id = int(ids[0][0])
         audio, _ = librosa.load(filename, sr=sample_rate, mono=True)
         audio = audio.reshape(-1, 1)
         yield audio, filename, category_id
