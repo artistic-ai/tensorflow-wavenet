@@ -23,4 +23,4 @@ scp-animals-model:
 	scp -i $(SSH_KEY) ubuntu@$(REMOTE_HOST):animals-model.zip .
 
 download-animals:
-    wget -O data https://dl.dropboxusercontent.com/s/jdar2aexajrvm5w/animals-model.zip
+    wget -O data https://dl.dropboxusercontent.com/s/90wapqa06osge90/animals-model.zip
