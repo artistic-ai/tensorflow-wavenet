@@ -1,4 +1,4 @@
-.PHONY: train, generate-sample, mv-generated, scp-generated, sample, download-animals, scp-animals-model
+.PHONY: all
 
 REMOTE_HOST ?= ec2-54-174-190-147.compute-1.amazonaws.com
 SSH_KEY ?= ~/.ssh/MykhailoZiatin.pem
@@ -23,4 +23,11 @@ scp-animals-model:
 	scp -i $(SSH_KEY) ubuntu@$(REMOTE_HOST):animals-model.zip .
 
 download-animals:
-    wget -O data https://dl.dropboxusercontent.com/s/90wapqa06osge90/animals-model.zip
+	wget https://dl.dropboxusercontent.com/s/t825zr5ytnl22zl/animals-xsmall.zip && \
+	unzip animals-xsmall.zip && \
+	rm animals-xsmall.zip
+
+download-animals-model:
+	wget https://dl.dropboxusercontent.com/s/90wapqa06osge90/animals-model.zip && \
+	unzip animals-model.zip && \
+	rm animals-model.zip
