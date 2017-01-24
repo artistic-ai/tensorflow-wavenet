@@ -6,7 +6,7 @@ MODEL_ID ?= 0
 
 
 train:
-	python ./train.py --data_dir=data/animals --checkpoint_every=10 --restore_from=logdir/train/animals
+	python ./train.py --data_dir=data/animals --checkpoint_every=50 --restore_from=logdir/train/animals
 
 sample: generate-sample mv-generated
 	mv generated-animals.wav /home/ubuntu/
